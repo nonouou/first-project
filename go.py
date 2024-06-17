@@ -43,7 +43,11 @@ def func3():  #종료 변수
      global end_time
      global duration
      end_time = time.time()
-     duration = end_time - start_time
+     duration = round(end_time - start_time, 2)
+     dur.config(text=duration)
+     prs.config(text='')
+     a = len(ets.get())    
+     ets.delete(0, a)
      print(start_time)
      print(end_time)
      print(duration)
@@ -110,6 +114,8 @@ prsk = tk.Label(window, text='현재 문장 :',)
 prs = tk.Label(window, text='', bg='white', width=55, relief='groove', bd=1, anchor='w', fg='black')
 inf = tk.Label(window, text='', width=55, bg='white', height=5)
 ets = tk.Entry(window, width=55)
+plt = tk.Label(window, text='플레이 시간 : ')
+dur = tk.Label(window, text='')
 ets.bind("<Return>", func1)
 
 
@@ -119,8 +125,8 @@ ets.place(x=65, y=230)
 stb.place(x=65, y=260)
 enb.place(x=130, y=260)
 inf.place(x=65, y=100)
-
-
+plt.place(x=65, y=60)
+dur.place(x=140, y=60)
 
 
 
